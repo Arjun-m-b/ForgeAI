@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forge-bg: #08080f;
+  --forge-surface: #12121f;
+  --forge-border: #1e1e3a;
+  --forge-accent: #6366f1;
+  --forge-accent-hover: #4f46e5;
+  --forge-cyan: #22d3ee;
+  --forge-text-primary: #f0f0ff;
+  --forge-text-secondary: #8888aa;
+  --forge-success: #10b981;
+  --forge-error: #ef4444;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--forge-bg);
+  color: var(--forge-text-primary);
+  font-family: var(--font-inter);
+  overflow: hidden;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(99, 102, 241, 0.4);
+  color: #f0f0ff;
+}
+
+::-moz-selection {
+  background-color: rgba(99, 102, 241, 0.4);
+  color: #f0f0ff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #0a0a14;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(18, 18, 31, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Shimmer animation for loading skeletons */
+.shimmer {
+  background: linear-gradient(90deg,
+      rgba(18, 18, 31, 0.4) 25%,
+      rgba(99, 102, 241, 0.08) 50%,
+      rgba(18, 18, 31, 0.4) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Animated gradient background for canvas area */
+.canvas-glow {
+  background: radial-gradient(ellipse at 50% 50%,
+      rgba(99, 102, 241, 0.06) 0%,
+      transparent 70%);
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animated dots for loading steps */
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: '';
+  }
+
+  25% {
+    content: '.';
+  }
+
+  50% {
+    content: '..';
+  }
+
+  75% {
+    content: '...';
+  }
+}
+
+/* Particle shimmer for loading overlay */
+.particle-bg {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(99, 102, 241, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 70%, rgba(34, 211, 238, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 20%, rgba(99, 102, 241, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 60%, rgba(34, 211, 238, 0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 40%, rgba(34, 211, 238, 0.2) 0%, transparent 100%);
+  animation: particle-drift 10s ease-in-out infinite;
+}
+
+@keyframes particle-drift {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 5% 3%;
+  }
+}
+
+/* Focus ring for inputs */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+  border-color: #6366f1;
+}
+
+/* Panel shadow */
+.panel-shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
